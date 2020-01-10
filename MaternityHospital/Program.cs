@@ -18,8 +18,10 @@ namespace MaternityHospital
             mhs1.AddChild("František", 8);
             mhs1.AddChild("Jan", 3.5);
 
-            WriteLine($"Nejtlustší děti: {mhs1.GetFatNames()} (průměrně {mhs1.GetFatWeight()} kg)");
-            WriteLine($"Nejběžnější jméno: {mhs1.GetCommonNames()}");
+            Console.WriteLine(mhs1.ChildList[1].Count);
+            //Console.WriteLine(mhs1.GetFatWeight());
+            //WriteLine($"Nejtlustší děti: {mhs1.GetFatNames()} (průměrně {mhs1.GetFatWeight()} kg)");
+            //WriteLine($"Nejběžnější jméno: {mhs1.GetCommonNames()}");
 
             ReadKey();
         }
