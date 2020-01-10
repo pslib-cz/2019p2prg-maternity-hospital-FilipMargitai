@@ -6,19 +6,24 @@ namespace MaternityHospital
 {
     class ChildStats : BaseMHStats
     {
-        private Dictionary<string, double> ChildDictionary = new Dictionary<string, double>();
+        private List<Child> ChildList = new List<Child> { };
         public override void AddChild(string name, double weight)
         {
-            ChildDictionary.Add(name, weight);
+            for (int i = 0; i <= ChildList.Count; i++)
+            {
+                if (ChildList[i].Name == name)
+                {
+                    ChildList[i].
+                }
+            }
         }
 
         public override string GetCommonNames()
         {
-            List<string> CommonNames = new List<string> { };
-            int NameCount = 0;
-            for(int i = 0; i < ChildDictionary.Count; i++)
+            List<int> CommonNames = new List<int> { };
+            for(int i = 0; i < ChildList.Count; i++)
             {
-
+                
             }
         }
 
