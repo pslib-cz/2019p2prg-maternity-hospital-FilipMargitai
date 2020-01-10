@@ -10,9 +10,11 @@ namespace MaternityHospital
         {
             Name = name;
             Weight = weight;
+            Count = 0;
         }
 
         public string Name { get; }
-        public double Weight { get; }
+        public double Weight { get; set;  }
+        public int Count { get; set; }
     }
 }

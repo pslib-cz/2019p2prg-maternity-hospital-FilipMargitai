@@ -6,14 +6,27 @@ namespace MaternityHospital
 {
     class ChildStats : BaseMHStats
     {
-        private List<Child> ChildList = new List<Child> { };
+        public List<Child> ChildList = new List<Child> { };
         public override void AddChild(string name, double weight)
         {
-            for (int i = 0; i <= ChildList.Count; i++)
+            if(ChildList.Count < 1)
             {
-                if (ChildList[i].Name == name)
+                ChildList.Add(new Child(name, weight));
+            }
+            else
+            {
+                for (int i = 0; i < ChildList.Count; i++)
                 {
-                    ChildList[i].
+                    if (ChildList[i].Name == name)
+                    {
+                        ChildList[i].Weight += weight;
+                        ChildList[i].Count += 1;
+                    }
+                    else
+                    {
+                        ChildList.Add(new Child(name, weight));
+                        break;
+                    }
                 }
             }
         }
@@ -23,7 +36,7 @@ namespace MaternityHospital
             List<int> CommonNames = new List<int> { };
             for(int i = 0; i < ChildList.Count; i++)
             {
-                
+                if(CommonNames)
             }
         }
 

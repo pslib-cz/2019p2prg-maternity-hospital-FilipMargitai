@@ -7,7 +7,7 @@ namespace MaternityHospital
     {
         static void Main(string[] args)
         {
-            var mhs1 = new <InsertClassName>();
+            var mhs1 = new ChildStats();
 
             mhs1.AddChild("František", 3);
             mhs1.AddChild("Jan", 4);
