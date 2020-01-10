@@ -6,7 +6,7 @@ namespace MaternityHospital
 {
     class ChildStats : BaseMHStats
     {
-        private List<Child> ChildList = new List<Child> { };
+        public List<Child> ChildList = new List<Child> { };
         public override void AddChild(string name, double weight)
         {
             if(ChildList.Count < 1)
