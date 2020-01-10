@@ -15,18 +15,20 @@ namespace MaternityHospital
             }
             else
             {
+                bool c = false;
                 for (int i = 0; i < ChildList.Count; i++)
                 {
                     if (ChildList[i].Name == name)
                     {
                         ChildList[i].Weight += weight;
                         ChildList[i].Count += 1;
-                    }
-                    else
-                    {
-                        ChildList.Add(new Child(name, weight));
+                        c = true;
                         break;
                     }
+                }
+                if(c == false)
+                {
+                    ChildList.Add(new Child(name, weight));
                 }
             }
         }
