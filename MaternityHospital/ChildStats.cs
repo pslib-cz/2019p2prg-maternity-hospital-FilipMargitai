@@ -21,7 +21,7 @@ namespace MaternityHospital
                     if (ChildList[i].Name == name)
                     {
                         ChildList[i].Weight += weight;
-                        ChildList[i].Count += 1;
+                        ChildList[i].Count++;
                         c = true;
                         break;
                     }
