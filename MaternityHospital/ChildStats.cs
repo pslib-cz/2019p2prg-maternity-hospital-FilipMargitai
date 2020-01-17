@@ -35,50 +35,27 @@ namespace MaternityHospital
 
         public override string GetCommonNames()
         {
-            List<Child> CommonNames = new List<Child> { };
-            CommonNames.Add(ChildList[0]);
-            for(int i = 0; i < ChildList.Count; i++)
-            {
-                for (int ii = 0; ii < CommonNames.Count; ii++)
-                {
-                    if (CommonNames[ii].Count < ChildList[i].Count)
-                    {
-                        CommonNames.RemoveAt(ii);
-                        CommonNames.Add(ChildList[i]);
-                    }
-                    else if (CommonNames[ii].Count == ChildList[i].Count)
-                    {
-                        CommonNames.Add(ChildList[i]);
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
-            string MyOverride = "";
-            foreach(Child child in CommonNames)
-            {
-                MyOverride += child.Name + " ";
-            }
-            for (int i = 0; i < CommonNames.Count; i++)
-            {
-                MyOverride += CommonNames[i].Name;
-                if (CommonNames.Count != (i))
-                {
-                    MyOverride += ", ";
-                }
-                else
-                {
-                    break;
-                }
-            }
-            return MyOverride;
+            
         }
 
         public override string GetFatNames()
         {
-            throw new NotImplementedException();
+            string Names = "";
+            foreach(Child child in ChildList)
+            {
+                if(child.avgWeight() == GetFatWeight())
+                {
+                    if(Names == "")
+                    {
+                        Names += child.Name;
+                    }
+                    else
+                    {
+                        Names += ", " + child.Name;
+                    }
+                }
+            }
+            return Names;
         }
 
         public override double GetFatWeight()
@@ -86,9 +63,9 @@ namespace MaternityHospital
             double weight = 0;
             foreach(Child child in ChildList)
             {
-                if((child.Weight / (double)child.Count) > weight)
+                if(child.avgWeight() > weight)
                 {
-                    weight = child.Weight / (double)child.Count;
+                    weight = child.avgWeight();
                 }
             }
             return weight;
