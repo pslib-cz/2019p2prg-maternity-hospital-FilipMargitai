@@ -19,11 +19,11 @@ namespace MaternityHospital
             mhs1.AddChild("Jan", 3.5);
             mhs1.AddChild("Vojta", 5.5);
 
-            Console.WriteLine(mhs1.GetFatWeight());
-            Console.WriteLine(mhs1.GetFatNames());
+            //Console.WriteLine(mhs1.GetFatWeight());
+            //Console.WriteLine(mhs1.GetFatNames());
 
-            //Console.WriteLine($"Nejtlustší děti: {mhs1.GetFatNames()} (průměrně {mhs1.GetFatWeight()} kg)");
-            //Console.WriteLine($"Nejběžnější jméno: {mhs1.GetCommonNames()}");
+            Console.WriteLine($"Nejtlustší děti: {mhs1.GetFatNames()} (průměrně {mhs1.GetFatWeight()} kg)");
+            Console.WriteLine($"Nejběžnější jméno: {mhs1.GetCommonNames()}");
 
             ReadKey();
         }

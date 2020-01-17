@@ -35,7 +35,30 @@ namespace MaternityHospital
 
         public override string GetCommonNames()
         {
-            
+            string Names = "";
+            int CommonNamesCount = 0;
+            foreach(Child child in ChildList)
+            {
+                if(child.Count > CommonNamesCount)
+                {
+                    CommonNamesCount = child.Count;
+                }
+            }
+            foreach(Child child in ChildList)
+            {
+                if(child.Count == CommonNamesCount)
+                {
+                    if (Names == "")
+                    {
+                        Names += child.Name;
+                    }
+                    else
+                    {
+                        Names += ", " + child.Name;
+                    }
+                }
+            }
+            return Names;
         }
 
         public override string GetFatNames()
