@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using MaternityHospital.Linq;
 
 namespace MaternityHospital
 {
@@ -15,14 +16,29 @@ namespace MaternityHospital
 
         public List<AvgChild> GetAgregate()
         {
-            var temp = ChildList.GroupBy((dite) => (dite.Name), (jmeno, decka) => (new AvgChild(jmeno, 0 /*todo*/, decka.Count())));
+            var temp = ChildList.GroupBy(dite => dite.Name, (jmeno, decka) => new AvgChild(jmeno, decka.Sum(d => d.Weight), decka.Count()));
 
-            return new List<AvgChild>();
+            return new List<AvgChild>(temp);
         }
+
+        public double GetAverageWeight()
+        {
+            double result = 0;
+
+            result = ChildList.Avg(dite => dite.Weight);
+
+            return result;
+        }
+
+        // nahrazeno lambda operací
+        //private double DejHmotnostDite(Child dite)
+        //{
+        //    return dite.Weight;
+        //}
 
         public override string GetCommonNames()
         {
-            return "";
+            return ChildList.Join(",");
         }
 
         public override string GetFatNames()

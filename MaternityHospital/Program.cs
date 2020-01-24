@@ -23,6 +23,8 @@ namespace MaternityHospital
             Console.WriteLine($"Nejtlustší děti: {mhs1.GetFatNames()} (průměrně {mhs1.GetFatWeight()} kg)");
             Console.WriteLine($"Nejběžnější jméno: {mhs1.GetCommonNames()}");
 
+            WriteLine($"Průměrná hmotnost všech dětí je {mhs1.GetAverageWeight()} kg.");
+
             ReadKey();
         }
     }
