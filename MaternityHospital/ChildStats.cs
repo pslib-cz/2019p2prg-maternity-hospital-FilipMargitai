@@ -38,7 +38,7 @@ namespace MaternityHospital
 
         public override string GetCommonNames()
         {
-            return ChildList.Join(",");
+            return ChildList.Join("; ", ch => ch.Name + " " + ch.Weight);
         }
 
         public override string GetFatNames()
